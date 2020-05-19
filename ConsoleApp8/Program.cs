@@ -27,6 +27,7 @@ namespace ConsoleApp8
                 order.OrderedDate = RandomDay();
                 db.Orders.InsertOnSubmit(order);
                 db.SubmitChanges();
+                //heyvuideptrai
                 //heythaydoi
 
             }
