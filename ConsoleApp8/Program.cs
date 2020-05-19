@@ -28,6 +28,7 @@ namespace ConsoleApp8
                 db.Orders.InsertOnSubmit(order);
                 db.SubmitChanges();
                 //heyvuideptrai
+                //heyvuideptrai
                 //heythaydoi
 
             }
