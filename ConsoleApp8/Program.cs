@@ -33,7 +33,7 @@ namespace ConsoleApp8
         public static DateTime RandomDay()
         {
             DateTime start = new DateTime(2019, 1, 1);
-            int range = (DateTime.Today - start).Days;
+            int range = (DateTime.Today - start).Days;  
             return start.AddDays(gen.Next(range));
         }
 
