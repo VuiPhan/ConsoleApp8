@@ -27,6 +27,8 @@ namespace ConsoleApp8
                 order.OrderedDate = RandomDay();
                 db.Orders.InsertOnSubmit(order);
                 db.SubmitChanges();
+                //heythaydoi
+
             }
         }
         public static Random gen = new Random();
