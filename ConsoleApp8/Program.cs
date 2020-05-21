@@ -31,6 +31,9 @@ namespace ConsoleApp8
                 //heyvuideptrai
                 //hello
                 //heythaydoi
+                // khi muon check in cai file nay len thoi
+                // thi` làm như sau
+
 
             }
         }
