@@ -77,6 +77,16 @@ namespace ConsoleApp8
 
 
         }
+        // Sau đây sẽ tạo ra một xung đột khi hai người cùng commit file lên.
+        public static DateTime xungDotCuong()
+        {
+            DateTime start = new DateTime(2019, 1, 1);
+            int range = (DateTime.Today - start).Days;
+            return start.AddDays(gen.Next(range));
+        }
+        // Giờ qua máy t để check in lên 
+        // Giờ khi mình tải code khi t commit lên nên nó bị xung đột, và nó sẽ bắt mình gộp code
+
 
 
     }
