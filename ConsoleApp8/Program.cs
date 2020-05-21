@@ -33,6 +33,8 @@ namespace ConsoleApp8
                 //heythaydoi
                 // khi muon check in cai file nay len thoi
                 // thi` làm như sau
+                // và qua bên tab sync để commit lên 
+
 
 
             }
