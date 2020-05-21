@@ -20,25 +20,52 @@ namespace ConsoleApp8
             for (int i = 0; i < 2; i++)
             {
                 Random rand = new Random();
-                int toSkip = rand.Next(0,10);
-                Member member = db.Members.Skip(toSkip).Take(1).First();
+                int countTotalCustomer = db.Members.Count();
+                int toSkipCustomer = rand.Next(0, countTotalCustomer);
+                Member member = db.Members.Skip(toSkipCustomer).Take(1).First();
+
+                // Xung đột 
+                int countTotalZip = db.ZipCodes.Count();
+                int toSkipZip = rand.Next(0, countTotalZip);
+                ZipCode zip = db.ZipCodes.Skip(toSkipZip).Take(1).First();
+
+
+                int countTotalShipper = db.ZipCodes.Count();
+                int toSkipShipper = rand.Next(0, countTotalShipper);
+                Shipper shipper = db.Shippers.Skip(toSkipShipper).Take(1).First();
+
+                int StatusOrder = rand.Next(0, 5);
+
+
                 Order order = new Order();
                 order.IDMember = member.IDMember;
-                order.OrderedDate = RandomDay();
-                db.Orders.InsertOnSubmit(order);
-                db.SubmitChanges();
-                //heyvuideptrai
-                //heyvuideptrai
-                //heythaydoi
+                order.IDZipCode = zip.IDZipCode;
+                order.Status = (byte)StatusOrder;
 
+                order.OrderedDate = RandomDay();
+                db.Orders.InsertOnSubmit(order);    
+                db.SubmitChanges();
             }
         }
         public static Random gen = new Random();
         public static DateTime RandomDay()
         {
-            DateTime start = new DateTime(2019, 1, 1);
-            int range = (DateTime.Today - start).Days;  
-            return start.AddDays(gen.Next(range));
+            //DateTime start = new DateTime(2019, 1, 1);
+            //int range = (DateTime.Today - start).Days;  
+            //return start.AddDays(gen.Next(range));
+            Random rand = new Random();
+            //Note that Random.Next(int, int) is inclusive lower bound, exclusive upper bound
+
+                DateTime myDateTime = new DateTime(2018, 1, 1,
+                rand.Next(7, 11), rand.Next(0, 60), 0);
+                    
+            
+
+            return myDateTime;
+
+
+
+
         }
 
 
