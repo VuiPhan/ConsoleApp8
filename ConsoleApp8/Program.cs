@@ -45,6 +45,16 @@ namespace ConsoleApp8
                 order.OrderedDate = RandomDay();
                 db.Orders.InsertOnSubmit(order);    
                 db.SubmitChanges();
+                //heyvuideptrai
+                //heyvuideptrai
+                //hello
+                //heythaydoi
+                // khi muon check in cai file nay len thoi
+                // thi` làm như sau
+                // và qua bên tab sync để commit lên 
+
+
+
             }
         }
         public static Random gen = new Random();
