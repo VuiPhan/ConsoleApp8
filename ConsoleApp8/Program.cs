@@ -29,6 +29,7 @@ namespace ConsoleApp8
                 db.SubmitChanges();
                 //heyvuideptrai
                 //heyvuideptrai
+                //hello
                 //heythaydoi
 
             }
