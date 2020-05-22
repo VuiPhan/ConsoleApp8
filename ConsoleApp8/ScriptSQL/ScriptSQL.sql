@@ -1270,3 +1270,20 @@ GO
 
 
 --end Cong
+--begin Vui
+CREATE TRIGGER  [dbo].[ChangeAmountAndTotalMoney] on [dbo].DetailOrder
+FOR  INSERT  
+AS 
+BEGIN 
+	DECLARE  @tien INT ,@soluong INT , @IDOrder INT , @idproduct INT 
+	SELECT  @tien=ne.Price, 
+	@soluong= ne.Amount, 
+	@IDOrder=ne.IDOrder
+	from inserted ne
+	DECLARE  @tong INT 
+	SET  @tong= @tien * @soluong
+	UPDATE dbo.[Order] 
+	 set TotalMoney += @tong, TotalAmount += @soluong
+	WHERE  IDOrder=@IDOrder
+END 
+--end Vui
