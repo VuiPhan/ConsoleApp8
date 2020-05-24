@@ -1307,5 +1307,24 @@ GO
 
 --DBCC CHECKIDENT ('DetailOrder', RESEED, 0)
 --DBCC CHECKIDENT ('Order', RESEED, 0)
-Go 
+GO 
+
+CREATE TRIGGER [dbo].[TriggerGiaSP] ON [dbo].DetailImport
+FOR INSERT
+AS
+BEGIN
+	DECLARE @MaSP INT,@GiaNhap DECIMAL
+	SELECT @MaSP = Inserted.IDProduct,@GiaNhap = Inserted.Price FROM Inserted
+	DECLARE @GiaHienTai DECIMAL
+	SELECT @GiaHienTai =Price FROM dbo.Product WHERE ProductID = @MaSP
+	DECLARE @SoSanh BIT
+    IF(@GiaHienTai < @GiaNhap*0.3+@GiaNhap)
+	BEGIN
+		UPDATE dbo.Product
+		SET Price = @GiaNhap * 0.3 +@GiaNhap
+		WHERE ProductID = @MaSP
+	END 
+END 
+GO 
 --end Vui
+
