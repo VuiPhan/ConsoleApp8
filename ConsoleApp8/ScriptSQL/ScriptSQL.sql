@@ -1287,3 +1287,25 @@ BEGIN
 	WHERE  IDOrder=@IDOrder
 END 
 --end Vui
+--begin Vui 24/05
+INSERT [dbo].[Shipper] ([NameShipper], [PhoneNumber], [Address], [Infomation]) VALUES ( N'Giao hàng tiết kiệm', N'098442822 ', N'HCM', N'Đơn vị giao hàng kinh nghiệm trên 10 năm')
+GO
+INSERT [dbo].[Shipper] ([NameShipper], [PhoneNumber], [Address], [Infomation]) VALUES ( N'Giao hàng nhanh', N'098442822 ', N'HCM', N'Đơn vị giao hàng kinh nghiệm trên 15 năm')
+GO
+INSERT [dbo].[Shipper] ([NameShipper], [PhoneNumber], [Address], [Infomation]) VALUES ( N'Giao hàng lẹ', N'092222824 ', N'HCM', N'Giao hàng nhanh chóng')
+GO
+ ALTER TABLE dbo.[Order] ALTER COLUMN Address NVARCHAR(MAX)
+ GO
+UPDATE dbo.Member
+SET PhoneNumber = '0984429047'
+GO 
+ALTER TABLE dbo.[Order] ALTER COLUMN PhoneNumber NVARCHAR(10)
+GO
+GO
+--DELETE dbo.[Order]
+--DELETE dbo.DetailOrder
+
+--DBCC CHECKIDENT ('DetailOrder', RESEED, 0)
+--DBCC CHECKIDENT ('Order', RESEED, 0)
+Go 
+--end Vui

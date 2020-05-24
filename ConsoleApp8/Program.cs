@@ -11,49 +11,64 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-             Console.OutputEncoding = Encoding.UTF8;
-
-            DateTime ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan;
-            string IDMember, Phone, Email, FullName;
-            string ZipCodeAddress;
-            int IDZipCode, IDShipper;
-
-            // INSERT DỮ LIỆU
-            DateTime[] date = RandomDay();
-            ngayDat = date[0]; ngayXacNhan = date[1]; ngayGiaoDVVC = date[2]; ngayNhan = date[3];
-            // Thông tin khách hàng
-            string[] Member = RandomMember();
-            IDMember = Member[0]; Phone = Member[1]; Email = Member[2]; FullName = Member[3];
-
-            string[] ZipCode = RandomZipCode();
-            IDZipCode = int.Parse(ZipCode[0]);
-            ZipCodeAddress = ZipCode[1];
-
-            IDShipper = RandomShipper();
-
-            // INSERT VÀO BẢNG ORDER
             ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
-            Order order = new Order();
-            order.OrderedDate = ngayDat; order.ConfirmDate = ngayXacNhan;
-            order.DeliveryDate = ngayGiaoDVVC; order.DeliveredDate = ngayNhan;
+            Random random = new Random();
+             Console.OutputEncoding = Encoding.UTF8;
+            for (int ii = 0; ii < 1000; ii++)
+            {
+                DateTime ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan;
+                string ZipCodeAddress;
+                int IDZipCode, IDShipper;
+                // INSERT DỮ LIỆU
+                DateTime[] date = RandomDay();
+                ngayDat = date[0]; ngayXacNhan = date[1]; ngayGiaoDVVC = date[2]; ngayNhan = date[3];
+                // Thông tin khách hàng
+                int numMember = random.Next(1, db.Members.Count());
+                Member member = db.Members.Skip(numMember).FirstOrDefault();
 
-            order.IDMember = int.Parse(IDMember);
-            order.PhoneNumber = Phone; order.FullName = FullName; order.Email = Email;
-
-            order.IDZipCode = IDZipCode;
-            order.Address = ZipCodeAddress;
-            order.IDShipper = IDShipper;
-
-
-
-            // Mã giả để insert :))
-            order.TotalMoney = 100000; order.TotalAmount = 5000;
-            order.Status = 4;
-            order.ShopOrOnline = true;
-            order.Notes = "Giao nhanh nha anh !";
-            db.Orders.InsertOnSubmit(order);
-            db.SubmitChanges();
-
+                string[] ZipCode = RandomZipCode();
+                IDZipCode = int.Parse(ZipCode[0]);
+                ZipCodeAddress = ZipCode[1];
+                IDShipper = RandomShipper();
+                // INSERT VÀO BẢNG ORDER
+                Order order = new Order();
+                order.OrderedDate = ngayDat; order.ConfirmDate = ngayXacNhan;
+                order.DeliveryDate = ngayGiaoDVVC; order.DeliveredDate = ngayNhan;
+                order.PhoneNumber = member.PhoneNumber;
+                order.FullName = member.FullName;
+                order.Email = member.Email;
+                order.IDMember = member.IDMember;
+                order.IDZipCode = IDZipCode;
+                order.Address = ZipCodeAddress;
+                order.IDShipper = IDShipper;
+                // Mã giả để insert :))
+                order.TotalMoney = 0;
+                order.TotalAmount = 0;
+                order.Status = 4;
+                order.ShopOrOnline = true;
+                order.Notes = "Giao nhanh nha anh !";
+                db.Orders.InsertOnSubmit(order);
+                db.SubmitChanges();
+                //Lấy mã id cuối cùng
+                
+                Order orderLast = db.Orders.Skip(db.Orders.Count() - 1).FirstOrDefault();
+                //Số lượng sản phẩm cho mỗi đơn hàng.
+                int numDetailOrderPerOrder = random.Next(1, 3);
+                for (int i = 0; i < numDetailOrderPerOrder; i++)
+                {
+                    int num = random.Next(1, db.Products.Count());
+                    DetailOrder detailOrder = new DetailOrder();
+                    Product product = db.Products.Skip(num).FirstOrDefault();
+                    detailOrder.IDOrder = orderLast.IDOrder;
+                    detailOrder.IDProduct = product.ProductID;
+                    detailOrder.Price = product.Price;
+                    detailOrder.Amount = random.Next(1, 3);
+                    db.DetailOrders.InsertOnSubmit(detailOrder);
+                    db.SubmitChanges();
+                    Console.WriteLine("Đã nhập thành công đơn hàng thứ {0}",ii);
+                }
+            }
+           
             // CODE DƯỚI ĐÂY DÙNG ĐỂ TEST LẤY KẾT QUẢ HIỆN RA CONSOLE
             //for (int i = 0; i < 10; i++)
             //{
@@ -80,7 +95,7 @@ namespace ConsoleApp8
             //}
             Console.WriteLine("========================");
         }
-         static DateTime[] RandomDay()
+        static DateTime[] RandomDay()
         {
             Console.OutputEncoding = Encoding.UTF8;
             // Biến begin lưu ngày bắt đầu là  ngày 1 tháng 1 năm 2018
