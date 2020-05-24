@@ -14,7 +14,7 @@ namespace ConsoleApp8
             ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random();
              Console.OutputEncoding = Encoding.UTF8;
-            for (int ii = 0; ii < 1000; ii++)
+            for (int ii = 0; ii < 10; ii++)
             {
                 DateTime ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan;
                 string ZipCodeAddress;
@@ -34,16 +34,19 @@ namespace ConsoleApp8
                 Order order = new Order();
                 order.OrderedDate = ngayDat; order.ConfirmDate = ngayXacNhan;
                 order.DeliveryDate = ngayGiaoDVVC; order.DeliveredDate = ngayNhan;
+
                 order.PhoneNumber = member.PhoneNumber;
                 order.FullName = member.FullName;
                 order.Email = member.Email;
                 order.IDMember = member.IDMember;
+
                 order.IDZipCode = IDZipCode;
                 order.Address = ZipCodeAddress;
                 order.IDShipper = IDShipper;
                 // Mã giả để insert :))
                 order.TotalMoney = 0;
                 order.TotalAmount = 0;
+
                 order.Status = 4;
                 order.ShopOrOnline = true;
                 order.Notes = "Giao nhanh nha anh !";
@@ -64,6 +67,33 @@ namespace ConsoleApp8
                     detailOrder.Price = product.Price;
                     detailOrder.Amount = random.Next(1, 3);
                     db.DetailOrders.InsertOnSubmit(detailOrder);
+                    db.SubmitChanges();
+
+                    // Import review về sản phẩm
+                    int star = random.Next(1, 5);
+                    Review review = new Review();
+                    review.Message = "Sản phẩm tuyệt vời";
+                    review.Star = star;
+                    review.IDOrder = orderLast.IDOrder;
+                    review.IDMember = member.IDMember;
+                    review.FullName = member.FullName;
+                    review.IDProduct = product.ProductID;
+                    //Kiểm tra sản phẩm đó là sản phẩm số 34, 35 ,36 thì review từ 4,5 
+                    if (review.IDProduct==34|| review.IDProduct == 35 || review.IDProduct == 36)
+                    {
+                        star = random.Next(4, 5);
+                        review.Star = star;
+                    }
+                    //Kiểm tra sản phẩm đó là sản phẩm số 34, 35 ,36 thì review từ 1,4 
+                    if (review.IDProduct == 4 || review.IDProduct == 5 || review.IDProduct == 6)
+                    {
+                        star = random.Next(1, 4);
+                        int[] values = {1,1,2,2,2,2,3,3,4,4 };
+                        int starProbability = values[random.Next(0, values.Length)];
+                        review.Star = starProbability;
+                    }
+                    review.Date = DateReview((DateTime)order.DeliveredDate);
+                    db.Reviews.InsertOnSubmit(review);
                     db.SubmitChanges();
                     Console.WriteLine("Đã nhập thành công đơn hàng thứ {0}",ii);
                 }
@@ -94,6 +124,16 @@ namespace ConsoleApp8
             //        IDZipCode, ZipCodeAddress, IDShipper);
             //}
             Console.WriteLine("========================");
+        }
+        static DateTime DateReview(DateTime DeliveredDate)
+        {
+            Random random = new Random(DateTime.Now.Millisecond);
+            int gio, phut; // lưu giờ và phút của ngayDat
+            gio = random.Next(100); // chạy từ 0 đến 23
+            phut = random.Next(60); // chạy từ 0 đến 59
+            DeliveredDate = DeliveredDate.AddHours(gio);
+            DeliveredDate = DeliveredDate.AddMinutes(phut);
+            return DeliveredDate;
         }
         static DateTime[] RandomDay()
         {
@@ -233,6 +273,12 @@ namespace ConsoleApp8
             }
             return zipCode;
 
+        }
+        static bool AddReview()
+        {
+            
+
+            return true;
         }
     }
 }
