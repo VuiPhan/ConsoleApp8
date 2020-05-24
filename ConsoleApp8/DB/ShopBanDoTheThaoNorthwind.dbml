@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ShopBanDoTheThaoNorthwind" Class="ShopBanDoTheThaoNorthwindDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=ShopBanDoTheThaoNorthwind;Integrated Security=True" SettingsObjectName="ConsoleApp8.Properties.Settings" SettingsPropertyName="ShopBanDoTheThaoNorthwindConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Comment" Member="Comments">
     <Type Name="Comment">
       <Column Name="IDComment" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

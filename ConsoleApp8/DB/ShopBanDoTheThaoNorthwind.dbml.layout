@@ -98,119 +98,119 @@
         <elementListCompartment Id="2c298ce6-dc40-40e1-8e1e-b9950e0a8345" absoluteBounds="0.765, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 2.89589680989583); (5.875 : 3.27089680989583); (5.875 : 7.01044840494792); (5.97916666666667 : 7.01044840494792 : JumpStart); (6.14583333333333 : 7.01044840494792 : JumpEnd); (6.25 : 7.01044840494792)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 2.89589680989583); (5.875 : 3.27089680989583); (5.875 : 7.01044840494792); (5.97916666666667 : 7.01044840494792 : JumpStart); (6.14583333333333 : 7.01044840494792 : JumpEnd); (6.25 : 7.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ImportBill/ImportBill_DetailImport" />
       <nodes>
         <classShapeMoniker Id="a12fc587-d099-4679-b78e-b4e8e7eb4504" />
         <classShapeMoniker Id="7b39ebdd-3a03-4c86-a67b-f2bb0db98af4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 20.4751611328125); (7.25 : 20.4751611328125); (7.25 : 10.9631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 20.4751611328125); (7.25 : 20.4751611328125); (7.25 : 10.9631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Member/Member_Comment" />
       <nodes>
         <classShapeMoniker Id="b0903e01-0e69-4690-9c26-09983e4a3d12" />
         <classShapeMoniker Id="4c20fe03-829a-44c4-8beb-f6e6f9926215" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.125 : 23.75); (2.125 : 21.9343082682292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.125 : 23.75); (2.125 : 21.9343082682292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/MemType/MemType_Member" />
       <nodes>
         <classShapeMoniker Id="203b87df-9c93-4e28-95ae-ecc5c6f3dd29" />
         <classShapeMoniker Id="b0903e01-0e69-4690-9c26-09983e4a3d12" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 14.9365374615385); (6.0625 : 14.3740374615385); (6.0625 : 4.01044840494792); (6.25 : 4.01044840494792)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 14.9365374615385); (6.0625 : 14.3740374615385); (6.0625 : 4.01044840494792); (6.25 : 4.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Order/Order_DetailOrder" />
       <nodes>
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
         <classShapeMoniker Id="31fb5b4b-5f6b-4eef-ada0-503d25097f03" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 19.6830855651042); (4.5 : 19.6830855651042); (4.5 : 18.9535139973958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 19.6830855651042); (4.5 : 19.6830855651042); (4.5 : 18.9535139973958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Member/Member_Order" />
       <nodes>
         <classShapeMoniker Id="b0903e01-0e69-4690-9c26-09983e4a3d12" />
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 15.1017976888021); (3.5 : 15.1017976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 15.1017976888021); (3.5 : 15.1017976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ZipCode/ZipCode_Order" />
       <nodes>
         <classShapeMoniker Id="ece50e1e-4c41-4242-9a95-7174fc876a34" />
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 9.1458154296875); (4.5 : 10.0545073359375); (5.97916666666667 : 10.0545073359375 : JumpStart); (6.14583333333333 : 10.0545073359375 : JumpEnd); (6.25 : 10.0545073359375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 9.1458154296875); (4.5 : 10.0545073359375); (6.25 : 10.0545073359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_Comment" />
       <nodes>
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
         <classShapeMoniker Id="4c20fe03-829a-44c4-8beb-f6e6f9926215" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 6.50522420247396); (5.79166666666667 : 6.50522420247396 : JumpStart); (5.95833333333333 : 6.50522420247396 : JumpEnd); (5.97916666666667 : 6.50522420247396 : JumpStart); (6.14583333333333 : 6.50522420247396 : JumpEnd); (6.25 : 6.50522420247396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 6.50522420247396); (5.97916666666667 : 6.50522420247396 : JumpStart); (6.14583333333333 : 6.50522420247396 : JumpEnd); (6.25 : 6.50522420247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_DetailImport" />
       <nodes>
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
         <classShapeMoniker Id="7b39ebdd-3a03-4c86-a67b-f2bb0db98af4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 4.875); (4.5 : 3.53647170247396); (5.79166666666667 : 3.53647170247396 : JumpStart); (5.95833333333333 : 3.53647170247396 : JumpEnd); (6.25 : 3.53647170247396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 4.875); (4.5 : 3.53647170247396); (5.79166666666667 : 3.53647170247396 : JumpStart); (5.95833333333333 : 3.53647170247396 : JumpEnd); (6.25 : 3.53647170247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_DetailOrder" />
       <nodes>
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
         <classShapeMoniker Id="31fb5b4b-5f6b-4eef-ada0-503d25097f03" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 10.5040513567708); (3.9687475 : 10.5040513567708); (3.9687475 : 9.1458154296875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 10.5040513567708); (3.9687475 : 10.5040513567708); (3.9687475 : 9.1458154296875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Producer/Producer_Product" />
       <nodes>
         <classShapeMoniker Id="5f3adc66-ec68-4f80-9b14-fa5ba75f77cf" />
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.06814697265625); (3.5 : 7.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 7.06814697265625); (3.5 : 7.06814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ProductType/ProductType_Product" />
       <nodes>
         <classShapeMoniker Id="af0472c9-1dfb-41fd-b3e3-9e9eae293461" />
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 21.2359872005208); (10.25 : 21.2359872005208); (10.25 : 8.2901025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 21.2359872005208); (10.25 : 21.2359872005208); (10.25 : 8.2901025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Member/Member_Review" />
       <nodes>
         <classShapeMoniker Id="b0903e01-0e69-4690-9c26-09983e4a3d12" />
         <classShapeMoniker Id="85c0ac6c-1995-49ea-922b-6942dbfe3395" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.12424967447917); (5.97916666666667 : 8.12424967447917 : JumpStart); (6.14583333333333 : 8.12424967447917 : JumpEnd); (9.25 : 8.12424967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 8.12424967447917); (5.97916666666667 : 8.12424967447917 : JumpStart); (6.14583333333333 : 8.12424967447917 : JumpEnd); (9.25 : 8.12424967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_Review" />
       <nodes>
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
         <classShapeMoniker Id="85c0ac6c-1995-49ea-922b-6942dbfe3395" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 17.0104484049479); (3.5 : 17.0104484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 17.0104484049479); (3.5 : 17.0104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Shipper/Shipper_Order" />
       <nodes>
         <classShapeMoniker Id="61eb520c-58fc-42c0-89aa-3926a265473e" />
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 12.4719962565104); (4.5 : 12.4719962565104); (4.5 : 14.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 12.4719962565104); (4.5 : 12.4719962565104); (4.5 : 14.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/StatusOrder/StatusOrder_Order" />
       <nodes>
         <classShapeMoniker Id="1cca50a9-545d-4b20-9688-49cc1db9b972" />
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.91909912109375); (3.5 : 1.91909912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.91909912109375); (3.5 : 1.91909912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Supplier/Supplier_ImportBill" />
       <nodes>
         <classShapeMoniker Id="434187b3-568c-442a-8a2c-872e4018f9d9" />
         <classShapeMoniker Id="a12fc587-d099-4679-b78e-b4e8e7eb4504" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.19314697265625); (3.5 : 5.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.19314697265625); (3.5 : 5.19314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/WareHouse/WareHouse_Product" />
       <nodes>
         <classShapeMoniker Id="6ec5830f-6b18-48ab-8fc8-d3534b77baea" />
