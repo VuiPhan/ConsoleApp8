@@ -1308,7 +1308,9 @@ GO
 --DBCC CHECKIDENT ('DetailOrder', RESEED, 0)
 --DBCC CHECKIDENT ('Order', RESEED, 0)
 GO 
-
+IF EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[TriggerGiaSP]'))
+DROP TRIGGER [dbo].[TriggerGiaSP]
+go
 CREATE TRIGGER [dbo].[TriggerGiaSP] ON [dbo].DetailImport
 FOR INSERT
 AS
