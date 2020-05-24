@@ -24,15 +24,15 @@ namespace ConsoleApp8
             // Thông tin khách hàng
             string[] Member = RandomMember();
             IDMember = Member[0]; Phone = Member[1]; Email = Member[2]; FullName = Member[3];
-            //
+
             string[] ZipCode = RandomZipCode();
             IDZipCode = int.Parse(ZipCode[0]);
             ZipCodeAddress = ZipCode[1];
-            //
+
             IDShipper = RandomShipper();
 
             // INSERT VÀO BẢNG ORDER
-            ShopBanDoTheThaoNorthwindEntities1 db = new ShopBanDoTheThaoNorthwindEntities1();
+            ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
             Order order = new Order();
             order.OrderedDate = ngayDat; order.ConfirmDate = ngayXacNhan;
             order.DeliveryDate = ngayGiaoDVVC; order.DeliveredDate = ngayNhan;
@@ -44,24 +44,26 @@ namespace ConsoleApp8
             order.Address = ZipCodeAddress;
             order.IDShipper = IDShipper;
 
+
+
             // Mã giả để insert :))
             order.TotalMoney = 100000; order.TotalAmount = 5000;
             order.Status = 4;
             order.ShopOrOnline = true;
             order.Notes = "Giao nhanh nha anh !";
-            db.Orders.Add(order);
-            db.SaveChanges();
+            db.Orders.InsertOnSubmit(order);
+            db.SubmitChanges();
 
             // CODE DƯỚI ĐÂY DÙNG ĐỂ TEST LẤY KẾT QUẢ HIỆN RA CONSOLE
             //for (int i = 0; i < 10; i++)
             //{
-            //    Console.WriteLine("========== {0} TIME(S) =============",i+1);
+            //    Console.WriteLine("========== {0} TIME(S) =============", i + 1);
             //    // 4 cột thời gian
             //    DateTime[] date = RandomDay();
             //    ngayDat = date[0]; ngayXacNhan = date[1]; ngayGiaoDVVC = date[2]; ngayNhan = date[3];
             //    // Thông tin khách hàng
             //    string[] Member = RandomMember();
-            //    IDMember = Member[0];Phone = Member[1]; Email = Member[2]; FullName = Member[3];
+            //    IDMember = Member[0]; Phone = Member[1]; Email = Member[2]; FullName = Member[3];
             //    //
             //    string[] ZipCode = RandomZipCode();
             //    IDZipCode = int.Parse(ZipCode[0]);
@@ -74,7 +76,7 @@ namespace ConsoleApp8
             //    Console.WriteLine("IDMember: {0} , Phone: {1}, Email: {2}, FullName: {3}",
             //        IDMember, Phone, Email, FullName);
             //    Console.WriteLine("IDZipCode: {0}, ZipCodeAddress: {1}, IDShipper: {2}",
-            //        IDZipCode,ZipCodeAddress, IDShipper);
+            //        IDZipCode, ZipCodeAddress, IDShipper);
             //}
             Console.WriteLine("========================");
         }
@@ -134,7 +136,7 @@ namespace ConsoleApp8
         {
             try
             {
-                ShopBanDoTheThaoNorthwindEntities da = new ShopBanDoTheThaoNorthwindEntities();
+                ShopBanDoTheThaoNorthwindDataContext da = new ShopBanDoTheThaoNorthwindDataContext();
                 Random random = new Random(DateTime.Now.Millisecond);
                 int k;
                 do { k = random.Next(3, 37); }
@@ -154,7 +156,7 @@ namespace ConsoleApp8
         }
         static string[] RandomMember()
         {
-            ShopBanDoTheThaoNorthwindEntities da = new ShopBanDoTheThaoNorthwindEntities();
+            ShopBanDoTheThaoNorthwindDataContext da = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random(DateTime.Now.Millisecond);
             int k = random.Next(17, 515);// những khách hàng Công thêm, những khách hàng trước đó có những ID không có
 
@@ -180,7 +182,7 @@ namespace ConsoleApp8
         }
         static int RandomShipper()
         {
-            ShopBanDoTheThaoNorthwindEntities da = new ShopBanDoTheThaoNorthwindEntities();
+            ShopBanDoTheThaoNorthwindDataContext da = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random(DateTime.Now.Millisecond);
             int k;
             k = random.Next(1,3);// chưa có dữ liệu thật nên tạm thời tạo 2 dòng để TEST
@@ -199,7 +201,7 @@ namespace ConsoleApp8
         }
         static string[] RandomZipCode()
         {
-            ShopBanDoTheThaoNorthwindEntities da = new ShopBanDoTheThaoNorthwindEntities();
+            ShopBanDoTheThaoNorthwindDataContext da = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random(DateTime.Now.Millisecond);
             int k;
             k = random.Next(1, 758);
