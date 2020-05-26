@@ -1330,3 +1330,20 @@ END
 GO 
 --end Vui
 
+--begin Vui 26-05-2020
+-- Continents: Châu lục
+--Country: Quốc gia
+GO
+ALTER TABLE dbo.ZipCode 
+ADD Country NVARCHAR(100)
+GO 
+ALTER TABLE dbo.ZipCode 
+ADD Continents NVARCHAR(100)
+GO 
+UPDATE dbo.ZipCode
+SET Country =N'Việt Nam'
+GO 
+UPDATE dbo.ZipCode
+SET Continents =N'Châu Á'
+
+--end Vui

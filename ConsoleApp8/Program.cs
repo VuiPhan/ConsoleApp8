@@ -280,5 +280,12 @@ namespace ConsoleApp8
 
             return true;
         }
+        //static void ImportBill()
+        //{
+        //    ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
+        //    ImportBill importBill = new ImportBill();
+        //    importBill.
+        //}
+        
     }
 }
