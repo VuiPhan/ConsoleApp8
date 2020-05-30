@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ShopBanDoTheThaoNorthwind" Class="ShopBanDoTheThaoNorthwindDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=VUIPHAN;Initial Catalog=ShopBanDoTheThaoNorthwind;Integrated Security=True" SettingsObjectName="ConsoleApp8.Properties.Settings" SettingsPropertyName="ShopBanDoTheThaoNorthwindConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Comment" Member="Comments">
     <Type Name="Comment">
       <Column Name="IDComment" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -29,17 +30,6 @@
       <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ImportBill_DetailImport" Member="ImportBill" ThisKey="IDImport" OtherKey="IDImport" Type="ImportBill" IsForeignKey="true" />
       <Association Name="Product_DetailImport" Member="Product" ThisKey="IDProduct" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DetailOrder" Member="DetailOrders">
-    <Type Name="DetailOrder">
-      <Column Name="IDOrderDetail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IDOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDProduct" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Association Name="Order_DetailOrder" Member="Order" ThisKey="IDOrder" OtherKey="IDOrder" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Product_DetailOrder" Member="Product" ThisKey="IDProduct" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ImportBill" Member="ImportBills">
@@ -138,8 +128,8 @@
       <Column Name="RemainingQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Product_Comment" Member="Comments" ThisKey="ProductID" OtherKey="IDProduct" Type="Comment" />
       <Association Name="Product_DetailImport" Member="DetailImports" ThisKey="ProductID" OtherKey="IDProduct" Type="DetailImport" />
-      <Association Name="Product_DetailOrder" Member="DetailOrders" ThisKey="ProductID" OtherKey="IDProduct" Type="DetailOrder" />
       <Association Name="Product_Review" Member="Reviews" ThisKey="ProductID" OtherKey="IDProduct" Type="Review" />
+      <Association Name="Product_DetailOrder" Member="DetailOrders" ThisKey="ProductID" OtherKey="IDProduct" Type="DetailOrder" />
       <Association Name="Producer_Product" Member="Producer" ThisKey="ProducerID" OtherKey="ProducerID" Type="Producer" IsForeignKey="true" />
       <Association Name="ProductType_Product" Member="ProductType" ThisKey="ProductTypeID" OtherKey="ProductTypeID" Type="ProductType" IsForeignKey="true" />
       <Association Name="WareHouse_Product" Member="WareHouse" ThisKey="WareHouseID" OtherKey="IDWareHouse" Type="WareHouse" IsForeignKey="true" />
@@ -202,6 +192,27 @@
       <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="WareHouse_Product" Member="Products" ThisKey="IDWareHouse" OtherKey="WareHouseID" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DetailOrder" Member="DetailOrders">
+    <Type Name="DetailOrder">
+      <Column Name="IDOrderDetail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDProduct" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="IDColor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_DetailOrder" Member="Order" ThisKey="IDOrder" OtherKey="IDOrder" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Product_DetailOrder" Member="Product" ThisKey="IDProduct" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="ColorProduct_DetailOrder" Member="ColorProduct" ThisKey="IDColor" OtherKey="IDColor" Type="ColorProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ColorProduct" Member="ColorProducts">
+    <Type Name="ColorProduct">
+      <Column Name="IDColor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameColor" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ColorProduct_DetailOrder" Member="DetailOrders" ThisKey="IDColor" OtherKey="IDColor" Type="DetailOrder" />
     </Type>
   </Table>
 </Database>

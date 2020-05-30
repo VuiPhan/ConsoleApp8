@@ -2,19 +2,35 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using ConsoleApp8.DB;
 
 namespace ConsoleApp8
 {
+    public static class StaticRandom {
+        private static int seed;
+
+        private static ThreadLocal<Random> threadLocal = new ThreadLocal<Random>
+            (() => new Random(Interlocked.Increment(ref seed)));
+
+        static StaticRandom()
+        {
+            seed = Environment.TickCount;
+        }
+
+        public static Random Instance { get { return threadLocal.Value; } }
+    }
     class Program
     {
         static void Main(string[] args)
         {
+
             ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random();
-             Console.OutputEncoding = Encoding.UTF8;
-            for (int ii = 0; ii < 10; ii++)
+            Console.OutputEncoding = Encoding.UTF8;
+            for (int ii = 0; ii < 200; ii++)
             {
                 DateTime ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan;
                 string ZipCodeAddress;
@@ -53,7 +69,7 @@ namespace ConsoleApp8
                 db.Orders.InsertOnSubmit(order);
                 db.SubmitChanges();
                 //Lấy mã id cuối cùng
-                
+
                 Order orderLast = db.Orders.Skip(db.Orders.Count() - 1).FirstOrDefault();
                 //Số lượng sản phẩm cho mỗi đơn hàng.
                 int numDetailOrderPerOrder = random.Next(1, 3);
@@ -62,8 +78,29 @@ namespace ConsoleApp8
                     int num = random.Next(1, db.Products.Count());
                     DetailOrder detailOrder = new DetailOrder();
                     Product product = db.Products.Skip(num).FirstOrDefault();
+                    // Kiểm tra xem có trùng sản phẩm đã insert hay không?
+                    bool checkTonTai = false;
+                    do
+                    {
+                        int num2 = GetRandomNumber(1, db.Products.Count());
+                        product = db.Products.Skip(num2).FirstOrDefault();
+                        DetailOrder checkTonTaiProduct = db.DetailOrders.Where(p => p.IDOrder == orderLast.IDOrder && p.IDProduct == product.ProductID).FirstOrDefault();
+                        if (checkTonTaiProduct != null)
+                        {
+                            checkTonTai = true;
+                        }
+                        else
+                        {
+                            checkTonTai = false;
+                        }
+                    } while (checkTonTai);
                     detailOrder.IDOrder = orderLast.IDOrder;
                     detailOrder.IDProduct = product.ProductID;
+
+                    int numColor = GetRandomNumber(1, db.ColorProducts.Count());
+                    ColorProduct color = db.ColorProducts.Skip(numColor).FirstOrDefault();
+
+                    detailOrder.IDColor = color.IDColor;
                     detailOrder.Price = product.Price;
                     detailOrder.Amount = random.Next(1, 3);
                     db.DetailOrders.InsertOnSubmit(detailOrder);
@@ -79,7 +116,7 @@ namespace ConsoleApp8
                     review.FullName = member.FullName;
                     review.IDProduct = product.ProductID;
                     //Kiểm tra sản phẩm đó là sản phẩm số 34, 35 ,36 thì review từ 4,5 
-                    if (review.IDProduct==34|| review.IDProduct == 35 || review.IDProduct == 36)
+                    if (review.IDProduct == 34 || review.IDProduct == 35 || review.IDProduct == 36)
                     {
                         star = random.Next(4, 5);
                         review.Star = star;
@@ -88,17 +125,17 @@ namespace ConsoleApp8
                     if (review.IDProduct == 4 || review.IDProduct == 5 || review.IDProduct == 6)
                     {
                         star = random.Next(1, 4);
-                        int[] values = {1,1,2,2,2,2,3,3,4,4 };
+                        int[] values = { 1, 1, 2, 2, 2, 2, 3, 3, 4, 4 };
                         int starProbability = values[random.Next(0, values.Length)];
                         review.Star = starProbability;
                     }
                     review.Date = DateReview((DateTime)order.DeliveredDate);
                     db.Reviews.InsertOnSubmit(review);
                     db.SubmitChanges();
-                    Console.WriteLine("Đã nhập thành công đơn hàng thứ {0}",ii);
+                    Console.WriteLine("Đã nhập thành công đơn hàng thứ {0}", ii);
                 }
             }
-           
+
             // CODE DƯỚI ĐÂY DÙNG ĐỂ TEST LẤY KẾT QUẢ HIỆN RA CONSOLE
             //for (int i = 0; i < 10; i++)
             //{
@@ -124,6 +161,21 @@ namespace ConsoleApp8
             //        IDZipCode, ZipCodeAddress, IDShipper);
             //}
             Console.WriteLine("========================");
+        }
+        ////private static readonly Random getrandom = new Random(DateTime.Now.Millisecond);
+
+        //public static int GetRandomNumber(int min, int max)
+        //{
+        //    Random getrandom = new Random(DateTime.Now.Millisecond);
+        //    lock (getrandom) // synchronize
+        //    {
+        //        return getrandom.Next(min, max);
+        //    }
+        //}
+        public static int GetRandomNumber(int min, int max)
+        {
+            var seed = Convert.ToInt32(Regex.Match(Guid.NewGuid().ToString(), @"\d+").Value);
+            return new Random(seed).Next(min, max);
         }
         static DateTime DateReview(DateTime DeliveredDate)
         {

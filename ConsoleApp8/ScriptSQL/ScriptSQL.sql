@@ -1302,11 +1302,15 @@ GO
 ALTER TABLE dbo.[Order] ALTER COLUMN PhoneNumber NVARCHAR(10)
 GO
 GO
---DELETE dbo.[Order]
 --DELETE dbo.DetailOrder
+--DELETE dbo.Review
+--DELETE dbo.[Order]
+
 
 --DBCC CHECKIDENT ('DetailOrder', RESEED, 0)
 --DBCC CHECKIDENT ('Order', RESEED, 0)
+--DBCC CHECKIDENT ('Review', RESEED, 0)
+
 GO 
 IF EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[TriggerGiaSP]'))
 DROP TRIGGER [dbo].[TriggerGiaSP]
@@ -2159,3 +2163,45 @@ INSERT INTO dbo.Shipper( NameShipper ,PhoneNumber ,Address ,Infomation) VALUES
 (N'T&M Forwarding', N'0111111111', N'Pearl Plaza Office Tower, 17/F, 561A Dien Bien Phu St., Ward 25, Binh Thanh District, Ho Chi Minh City, Vietnam', N'Nhà vận chuyển'),
 (N'Tien Phong Trade and Transporting Services Co., Ltd', N'0111111111', N'#1701 ARTEX Building – 172 Ngoc Khanh Street, Giang Vo, Ba Dinh Dist., Hanoi, Vietnam', N'Nhà vận chuyển')
 --end Hung
+--begin Vui
+GO 
+CREATE TABLE ColorProduct(
+	IDColor INT IDENTITY(1,1),
+	NameColor NVARCHAR(100) NOT NULL,
+	Description NVARCHAR(MAX),
+	PRIMARY KEY(IDColor)
+)
+Go 
+ALTER TABLE dbo.DetailOrder
+ADD IDColor INT 
+GO
+ALTER TABLE dbo.DetailOrder
+ADD FOREIGN KEY(IDColor) REFERENCES ColorProduct(IDColor)
+
+
+
+INSERT INTO dbo.ColorProduct
+        ( NameColor, Description )
+VALUES  ( 
+          N'Màu đỏ', -- NameColor - nvarchar(100)
+          N''  -- Description - nvarchar(max)
+          )
+INSERT INTO dbo.ColorProduct
+        ( NameColor, Description )
+VALUES  ( 
+          N'Màu lục', -- NameColor - nvarchar(100)
+          N''  -- Description - nvarchar(max)
+          )
+INSERT INTO dbo.ColorProduct
+        ( NameColor, Description )
+VALUES  ( 
+          N'Màu lam', -- NameColor - nvarchar(100)
+          N''  -- Description - nvarchar(max)
+          )
+INSERT INTO dbo.ColorProduct
+        ( NameColor, Description )
+VALUES  ( 
+          N'Màu tím', -- NameColor - nvarchar(100)
+          N''  -- Description - nvarchar(max)
+          )
+--end Vui

@@ -1,32 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 25.25" name="ShopBanDoTheThaoNorthwind">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 25.25" name="ShopBanDoTheThaoNorthwind">
   <DataContextMoniker Name="/ShopBanDoTheThaoNorthwindDataContext" />
   <nestedChildShapes>
-    <classShape Id="4c20fe03-829a-44c4-8beb-f6e6f9926215" absoluteBounds="6.25, 9, 2, 1.9631982421874987">
+    <classShape Id="4c20fe03-829a-44c4-8beb-f6e6f9926215" isExpanded="false" absoluteBounds="6.25, 9, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Comment" />
       <nestedChildShapes>
         <elementListCompartment Id="f876ec55-6787-454f-b0b1-f09ec28fc53a" absoluteBounds="6.265, 9.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ece50e1e-4c41-4242-9a95-7174fc876a34" absoluteBounds="0.75, 13.75, 2, 1.5785953776041666">
+    <classShape Id="ece50e1e-4c41-4242-9a95-7174fc876a34" isExpanded="false" absoluteBounds="0.75, 13.75, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ZipCode" />
       <nestedChildShapes>
         <elementListCompartment Id="d2662f60-6124-4f8a-b67e-6c9e4545657e" absoluteBounds="0.765, 14.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7b39ebdd-3a03-4c86-a67b-f2bb0db98af4" absoluteBounds="6.25, 6.125, 2, 1.7708968098958327">
+    <classShape Id="7b39ebdd-3a03-4c86-a67b-f2bb0db98af4" isExpanded="false" absoluteBounds="6.25, 6.125, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/DetailImport" />
       <nestedChildShapes>
         <elementListCompartment Id="08760fb9-bffc-4ba7-b060-33c34c458a94" absoluteBounds="6.265, 6.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="31fb5b4b-5f6b-4eef-ada0-503d25097f03" absoluteBounds="6.25, 3.125, 2, 1.7708968098958327">
-      <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/DetailOrder" />
-      <nestedChildShapes>
-        <elementListCompartment Id="fbff7444-90ae-44ed-a358-dfef464c297d" absoluteBounds="6.265, 3.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="a12fc587-d099-4679-b78e-b4e8e7eb4504" absoluteBounds="3.5, 1.125, 2, 1.7708968098958331">
+    <classShape Id="a12fc587-d099-4679-b78e-b4e8e7eb4504" isExpanded="false" absoluteBounds="3.5, 1.125, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ImportBill" />
       <nestedChildShapes>
         <elementListCompartment Id="0b2bb06a-231e-47a8-b991-a9b0d6d4d3dd" absoluteBounds="3.515, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
@@ -44,68 +38,68 @@
         <elementListCompartment Id="1e23cb12-4459-421c-9f65-69122bd79d5b" absoluteBounds="1.5150000000000001, 24.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6773df07-2660-4188-ba64-4bf248216548" absoluteBounds="3.5, 14.875, 2, 4.0785139973958309">
+    <classShape Id="6773df07-2660-4188-ba64-4bf248216548" isExpanded="false" absoluteBounds="3.5, 14.875, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Order" />
       <nestedChildShapes>
         <elementListCompartment Id="119d8aef-d5fa-48cc-8196-f43d76852734" absoluteBounds="3.515, 15.335, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5f3adc66-ec68-4f80-9b14-fa5ba75f77cf" absoluteBounds="0.75, 9.375, 2, 1.5785953776041666">
+    <classShape Id="5f3adc66-ec68-4f80-9b14-fa5ba75f77cf" isExpanded="false" absoluteBounds="0.75, 9.375, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Producer" />
       <nestedChildShapes>
         <elementListCompartment Id="0b1d06b2-d96d-4b23-b29c-6b5fab05ad31" absoluteBounds="0.765, 9.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" absoluteBounds="3.5, 4.875, 2, 4.2708154296875005">
+    <classShape Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" isExpanded="false" absoluteBounds="2.75, 2.625, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product" />
       <nestedChildShapes>
-        <elementListCompartment Id="33a0e54a-3bb4-405e-b2e2-08613836c38e" absoluteBounds="3.515, 5.335, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="33a0e54a-3bb4-405e-b2e2-08613836c38e" absoluteBounds="2.765, 3.085, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="af0472c9-1dfb-41fd-b3e3-9e9eae293461" absoluteBounds="0.75, 6.375, 2, 1.3862939453125005">
+    <classShape Id="af0472c9-1dfb-41fd-b3e3-9e9eae293461" isExpanded="false" absoluteBounds="0.75, 6.375, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ProductType" />
       <nestedChildShapes>
         <elementListCompartment Id="5e112c72-5f1e-4865-a68d-a3257ee5761c" absoluteBounds="0.765, 6.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="85c0ac6c-1995-49ea-922b-6942dbfe3395" absoluteBounds="9.25, 5.75, 2, 2.5401025390625005">
+    <classShape Id="85c0ac6c-1995-49ea-922b-6942dbfe3395" isExpanded="false" absoluteBounds="8.125, 5.875, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Review" />
       <nestedChildShapes>
-        <elementListCompartment Id="1ee51fe6-78d9-4e6e-bc44-749574a703e7" absoluteBounds="9.265, 6.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1ee51fe6-78d9-4e6e-bc44-749574a703e7" absoluteBounds="8.14, 6.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="61eb520c-58fc-42c0-89aa-3926a265473e" absoluteBounds="0.75, 16.125, 2, 1.7708968098958344">
+    <classShape Id="61eb520c-58fc-42c0-89aa-3926a265473e" isExpanded="false" absoluteBounds="0.75, 16.125, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Shipper" />
       <nestedChildShapes>
         <elementListCompartment Id="c06d612b-39e8-4afd-aef3-a5aa7f190f3b" absoluteBounds="0.765, 16.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1cca50a9-545d-4b20-9688-49cc1db9b972" absoluteBounds="0.75, 11.875, 2, 1.1939925130208344">
+    <classShape Id="1cca50a9-545d-4b20-9688-49cc1db9b972" isExpanded="false" absoluteBounds="0.75, 11.875, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/StatusOrder" />
       <nestedChildShapes>
         <elementListCompartment Id="f5da0bf9-2d43-4179-a466-1622b664e45a" absoluteBounds="0.765, 12.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="434187b3-568c-442a-8a2c-872e4018f9d9" absoluteBounds="0.75, 0.75, 2, 1.9631982421875005">
+    <classShape Id="434187b3-568c-442a-8a2c-872e4018f9d9" isExpanded="false" absoluteBounds="0.75, 0.75, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Supplier" />
       <nestedChildShapes>
         <elementListCompartment Id="7abed432-9de5-425b-8776-7d2741d1bc8b" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6ec5830f-6b18-48ab-8fc8-d3534b77baea" absoluteBounds="0.75, 4.125, 2, 1.3862939453125005">
+    <classShape Id="6ec5830f-6b18-48ab-8fc8-d3534b77baea" isExpanded="false" absoluteBounds="0.5, 2, 2, 0.45">
       <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/WareHouse" />
       <nestedChildShapes>
-        <elementListCompartment Id="2c298ce6-dc40-40e1-8e1e-b9950e0a8345" absoluteBounds="0.765, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2c298ce6-dc40-40e1-8e1e-b9950e0a8345" absoluteBounds="0.515, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 2.89589680989583); (5.875 : 3.27089680989583); (5.875 : 7.01044840494792); (5.97916666666667 : 7.01044840494792 : JumpStart); (6.14583333333333 : 7.01044840494792 : JumpEnd); (6.25 : 7.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.15625 : 1.575); (5.15625 : 6.42187625); (5.24479166666667 : 6.42187625 : JumpStart); (5.41145833333333 : 6.42187625 : JumpEnd); (6.25 : 6.42187625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ImportBill/ImportBill_DetailImport" />
       <nodes>
         <classShapeMoniker Id="a12fc587-d099-4679-b78e-b4e8e7eb4504" />
         <classShapeMoniker Id="7b39ebdd-3a03-4c86-a67b-f2bb0db98af4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 20.4751611328125); (7.25 : 20.4751611328125); (7.25 : 10.9631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 20.3774076334635); (7.2812525 : 20.3774076334635); (7.2812525 : 9.45)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Member/Member_Comment" />
       <nodes>
         <classShapeMoniker Id="b0903e01-0e69-4690-9c26-09983e4a3d12" />
@@ -119,102 +113,121 @@
         <classShapeMoniker Id="b0903e01-0e69-4690-9c26-09983e4a3d12" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 14.9365374615385); (6.0625 : 14.3740374615385); (6.0625 : 4.01044840494792); (6.25 : 4.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Order/Order_DetailOrder" />
-      <nodes>
-        <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
-        <classShapeMoniker Id="31fb5b4b-5f6b-4eef-ada0-503d25097f03" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 19.6830855651042); (4.5 : 19.6830855651042); (4.5 : 18.9535139973958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 19.5188280664063); (5.0312525 : 19.5188280664063); (5.0312525 : 15.325)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Member/Member_Order" />
       <nodes>
         <classShapeMoniker Id="b0903e01-0e69-4690-9c26-09983e4a3d12" />
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 15.1017976888021); (3.5 : 15.1017976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 14.2); (3.5 : 14.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ZipCode/ZipCode_Order" />
       <nodes>
         <classShapeMoniker Id="ece50e1e-4c41-4242-9a95-7174fc876a34" />
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 9.1458154296875); (4.5 : 10.0545073359375); (6.25 : 10.0545073359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.78125 : 3.075); (3.78125 : 9.225); (5.24479166666667 : 9.225 : JumpStart); (5.41145833333333 : 9.225 : JumpEnd); (6.25 : 9.225)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_Comment" />
       <nodes>
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
         <classShapeMoniker Id="4c20fe03-829a-44c4-8beb-f6e6f9926215" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 6.50522420247396); (5.97916666666667 : 6.50522420247396 : JumpStart); (6.14583333333333 : 6.50522420247396 : JumpEnd); (6.25 : 6.50522420247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.2968775 : 3.075); (4.2968775 : 6.2062475); (5.07291666666667 : 6.2062475 : JumpStart); (5.23958333333333 : 6.2062475 : JumpEnd); (5.24479166666667 : 6.2062475 : JumpStart); (5.41145833333333 : 6.2062475 : JumpEnd); (6.25 : 6.2062475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_DetailImport" />
       <nodes>
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
         <classShapeMoniker Id="7b39ebdd-3a03-4c86-a67b-f2bb0db98af4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 4.875); (4.5 : 3.53647170247396); (5.79166666666667 : 3.53647170247396 : JumpStart); (5.95833333333333 : 3.53647170247396 : JumpEnd); (6.25 : 3.53647170247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_DetailOrder" />
-      <nodes>
-        <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
-        <classShapeMoniker Id="31fb5b4b-5f6b-4eef-ada0-503d25097f03" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 10.5040513567708); (3.9687475 : 10.5040513567708); (3.9687475 : 9.1458154296875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 9.6); (3.2656225 : 9.6); (3.2656225 : 3.075)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Producer/Producer_Product" />
       <nodes>
         <classShapeMoniker Id="5f3adc66-ec68-4f80-9b14-fa5ba75f77cf" />
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.06814697265625); (3.5 : 7.06814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.71875 : 6.375); (1.71875 : 2.85); (2.75 : 2.85)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ProductType/ProductType_Product" />
       <nodes>
         <classShapeMoniker Id="af0472c9-1dfb-41fd-b3e3-9e9eae293461" />
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 21.2359872005208); (10.25 : 21.2359872005208); (10.25 : 8.2901025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 21.1871104508463); (8.7343725 : 21.1871104508463); (8.7343725 : 6.325)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Member/Member_Review" />
       <nodes>
         <classShapeMoniker Id="b0903e01-0e69-4690-9c26-09983e4a3d12" />
         <classShapeMoniker Id="85c0ac6c-1995-49ea-922b-6942dbfe3395" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.12424967447917); (5.97916666666667 : 8.12424967447917 : JumpStart); (6.14583333333333 : 8.12424967447917 : JumpEnd); (9.25 : 8.12424967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.97655875 : 3.075); (2.97655875 : 5.96875); (3.18228916666667 : 5.96875 : JumpStart); (3.34895583333333 : 5.96875 : JumpEnd); (3.69791666666667 : 5.96875 : JumpStart); (3.86458333333333 : 5.96875 : JumpEnd); (4.21354416666667 : 5.96875 : JumpStart); (4.38021083333333 : 5.96875 : JumpEnd); (5.07291666666667 : 5.96875 : JumpStart); (5.23958333333333 : 5.96875 : JumpEnd); (5.24479166666667 : 5.96875 : JumpStart); (5.41145833333333 : 5.96875 : JumpEnd); (8.125 : 5.96875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_Review" />
       <nodes>
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
         <classShapeMoniker Id="85c0ac6c-1995-49ea-922b-6942dbfe3395" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 17.0104484049479); (3.5 : 17.0104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 16.125); (3.5 : 15.325)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Shipper/Shipper_Order" />
       <nodes>
         <classShapeMoniker Id="61eb520c-58fc-42c0-89aa-3926a265473e" />
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 12.4719962565104); (4.5 : 12.4719962565104); (4.5 : 14.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 12.1); (4.5312525 : 12.1); (4.5312525 : 14.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/StatusOrder/StatusOrder_Order" />
       <nodes>
         <classShapeMoniker Id="1cca50a9-545d-4b20-9688-49cc1db9b972" />
         <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.91909912109375); (3.5 : 1.91909912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 0.975); (3.125 : 0.975); (3.125 : 1.35); (3.5 : 1.35)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Supplier/Supplier_ImportBill" />
       <nodes>
         <classShapeMoniker Id="434187b3-568c-442a-8a2c-872e4018f9d9" />
         <classShapeMoniker Id="a12fc587-d099-4679-b78e-b4e8e7eb4504" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.19314697265625); (3.5 : 5.19314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 2.45); (2.75 : 2.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/WareHouse/WareHouse_Product" />
       <nodes>
         <classShapeMoniker Id="6ec5830f-6b18-48ab-8fc8-d3534b77baea" />
         <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ad1a1ed1-3ae2-4e11-99d1-69e0492c2388" absoluteBounds="5.625, 2.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/DetailOrder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="edb6e2f1-542e-4316-97cb-b0b65971866c" absoluteBounds="5.64, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.328125 : 14.875); (5.328125 : 3.86284912109375); (5.625 : 3.86284912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Order/Order_DetailOrder" />
+      <nodes>
+        <classShapeMoniker Id="6773df07-2660-4188-ba64-4bf248216548" />
+        <classShapeMoniker Id="ad1a1ed1-3ae2-4e11-99d1-69e0492c2388" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.75 : 2.85); (5.07291666666667 : 2.85 : JumpStart); (5.23958333333333 : 2.85 : JumpEnd); (5.625 : 2.85)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/Product/Product_DetailOrder" />
+      <nodes>
+        <classShapeMoniker Id="54480089-d310-4de4-8b3f-dcdfef8bc7cc" />
+        <classShapeMoniker Id="ad1a1ed1-3ae2-4e11-99d1-69e0492c2388" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="395c1d4b-ae30-44e3-8b1b-4c6f18de42b0" absoluteBounds="6.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ColorProduct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ccda2a8-fdeb-4f61-bbfc-e332e0b5f067" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.1875 : 2.1362939453125); (7.1875 : 2.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ShopBanDoTheThaoNorthwindDataContext/ColorProduct/ColorProduct_DetailOrder" />
+      <nodes>
+        <classShapeMoniker Id="395c1d4b-ae30-44e3-8b1b-4c6f18de42b0" />
+        <classShapeMoniker Id="ad1a1ed1-3ae2-4e11-99d1-69e0492c2388" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

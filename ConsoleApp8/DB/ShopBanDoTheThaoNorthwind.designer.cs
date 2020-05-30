@@ -39,9 +39,6 @@ namespace ConsoleApp8.DB
     partial void InsertDetailImport(DetailImport instance);
     partial void UpdateDetailImport(DetailImport instance);
     partial void DeleteDetailImport(DetailImport instance);
-    partial void InsertDetailOrder(DetailOrder instance);
-    partial void UpdateDetailOrder(DetailOrder instance);
-    partial void DeleteDetailOrder(DetailOrder instance);
     partial void InsertImportBill(ImportBill instance);
     partial void UpdateImportBill(ImportBill instance);
     partial void DeleteImportBill(ImportBill instance);
@@ -78,10 +75,16 @@ namespace ConsoleApp8.DB
     partial void InsertWareHouse(WareHouse instance);
     partial void UpdateWareHouse(WareHouse instance);
     partial void DeleteWareHouse(WareHouse instance);
+    partial void InsertDetailOrder(DetailOrder instance);
+    partial void UpdateDetailOrder(DetailOrder instance);
+    partial void DeleteDetailOrder(DetailOrder instance);
+    partial void InsertColorProduct(ColorProduct instance);
+    partial void UpdateColorProduct(ColorProduct instance);
+    partial void DeleteColorProduct(ColorProduct instance);
     #endregion
 		
 		public ShopBanDoTheThaoNorthwindDataContext() : 
-				base(global::ConsoleApp8.Properties.Settings.Default.ShopBanDoTheThaoNorthwindConnectionString, mappingSource)
+				base(global::ConsoleApp8.Properties.Settings.Default.ShopBanDoTheThaoNorthwindConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -131,14 +134,6 @@ namespace ConsoleApp8.DB
 			get
 			{
 				return this.GetTable<DetailImport>();
-			}
-		}
-		
-		public System.Data.Linq.Table<DetailOrder> DetailOrders
-		{
-			get
-			{
-				return this.GetTable<DetailOrder>();
 			}
 		}
 		
@@ -235,6 +230,22 @@ namespace ConsoleApp8.DB
 			get
 			{
 				return this.GetTable<WareHouse>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DetailOrder> DetailOrders
+		{
+			get
+			{
+				return this.GetTable<DetailOrder>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ColorProduct> ColorProducts
+		{
+			get
+			{
+				return this.GetTable<ColorProduct>();
 			}
 		}
 	}
@@ -873,246 +884,6 @@ namespace ConsoleApp8.DB
 					if ((value != null))
 					{
 						value.DetailImports.Add(this);
-						this._IDProduct = value.ProductID;
-					}
-					else
-					{
-						this._IDProduct = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Product");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DetailOrder")]
-	public partial class DetailOrder : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IDOrderDetail;
-		
-		private System.Nullable<int> _IDOrder;
-		
-		private System.Nullable<int> _IDProduct;
-		
-		private System.Nullable<int> _Amount;
-		
-		private System.Nullable<decimal> _Price;
-		
-		private EntityRef<Order> _Order;
-		
-		private EntityRef<Product> _Product;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDOrderDetailChanging(int value);
-    partial void OnIDOrderDetailChanged();
-    partial void OnIDOrderChanging(System.Nullable<int> value);
-    partial void OnIDOrderChanged();
-    partial void OnIDProductChanging(System.Nullable<int> value);
-    partial void OnIDProductChanged();
-    partial void OnAmountChanging(System.Nullable<int> value);
-    partial void OnAmountChanged();
-    partial void OnPriceChanging(System.Nullable<decimal> value);
-    partial void OnPriceChanged();
-    #endregion
-		
-		public DetailOrder()
-		{
-			this._Order = default(EntityRef<Order>);
-			this._Product = default(EntityRef<Product>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDOrderDetail", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IDOrderDetail
-		{
-			get
-			{
-				return this._IDOrderDetail;
-			}
-			set
-			{
-				if ((this._IDOrderDetail != value))
-				{
-					this.OnIDOrderDetailChanging(value);
-					this.SendPropertyChanging();
-					this._IDOrderDetail = value;
-					this.SendPropertyChanged("IDOrderDetail");
-					this.OnIDOrderDetailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDOrder", DbType="Int")]
-		public System.Nullable<int> IDOrder
-		{
-			get
-			{
-				return this._IDOrder;
-			}
-			set
-			{
-				if ((this._IDOrder != value))
-				{
-					if (this._Order.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIDOrderChanging(value);
-					this.SendPropertyChanging();
-					this._IDOrder = value;
-					this.SendPropertyChanged("IDOrder");
-					this.OnIDOrderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDProduct", DbType="Int")]
-		public System.Nullable<int> IDProduct
-		{
-			get
-			{
-				return this._IDProduct;
-			}
-			set
-			{
-				if ((this._IDProduct != value))
-				{
-					if (this._Product.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIDProductChanging(value);
-					this.SendPropertyChanging();
-					this._IDProduct = value;
-					this.SendPropertyChanged("IDProduct");
-					this.OnIDProductChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int")]
-		public System.Nullable<int> Amount
-		{
-			get
-			{
-				return this._Amount;
-			}
-			set
-			{
-				if ((this._Amount != value))
-				{
-					this.OnAmountChanging(value);
-					this.SendPropertyChanging();
-					this._Amount = value;
-					this.SendPropertyChanged("Amount");
-					this.OnAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_DetailOrder", Storage="_Order", ThisKey="IDOrder", OtherKey="IDOrder", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Order Order
-		{
-			get
-			{
-				return this._Order.Entity;
-			}
-			set
-			{
-				Order previousValue = this._Order.Entity;
-				if (((previousValue != value) 
-							|| (this._Order.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Order.Entity = null;
-						previousValue.DetailOrders.Remove(this);
-					}
-					this._Order.Entity = value;
-					if ((value != null))
-					{
-						value.DetailOrders.Add(this);
-						this._IDOrder = value.IDOrder;
-					}
-					else
-					{
-						this._IDOrder = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Order");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_DetailOrder", Storage="_Product", ThisKey="IDProduct", OtherKey="ProductID", IsForeignKey=true)]
-		public Product Product
-		{
-			get
-			{
-				return this._Product.Entity;
-			}
-			set
-			{
-				Product previousValue = this._Product.Entity;
-				if (((previousValue != value) 
-							|| (this._Product.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Product.Entity = null;
-						previousValue.DetailOrders.Remove(this);
-					}
-					this._Product.Entity = value;
-					if ((value != null))
-					{
-						value.DetailOrders.Add(this);
 						this._IDProduct = value.ProductID;
 					}
 					else
@@ -2807,9 +2578,9 @@ namespace ConsoleApp8.DB
 		
 		private EntitySet<DetailImport> _DetailImports;
 		
-		private EntitySet<DetailOrder> _DetailOrders;
-		
 		private EntitySet<Review> _Reviews;
+		
+		private EntitySet<DetailOrder> _DetailOrders;
 		
 		private EntityRef<Producer> _Producer;
 		
@@ -2863,8 +2634,8 @@ namespace ConsoleApp8.DB
 		{
 			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
 			this._DetailImports = new EntitySet<DetailImport>(new Action<DetailImport>(this.attach_DetailImports), new Action<DetailImport>(this.detach_DetailImports));
-			this._DetailOrders = new EntitySet<DetailOrder>(new Action<DetailOrder>(this.attach_DetailOrders), new Action<DetailOrder>(this.detach_DetailOrders));
 			this._Reviews = new EntitySet<Review>(new Action<Review>(this.attach_Reviews), new Action<Review>(this.detach_Reviews));
+			this._DetailOrders = new EntitySet<DetailOrder>(new Action<DetailOrder>(this.attach_DetailOrders), new Action<DetailOrder>(this.detach_DetailOrders));
 			this._Producer = default(EntityRef<Producer>);
 			this._ProductType = default(EntityRef<ProductType>);
 			this._WareHouse = default(EntityRef<WareHouse>);
@@ -3269,19 +3040,6 @@ namespace ConsoleApp8.DB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_DetailOrder", Storage="_DetailOrders", ThisKey="ProductID", OtherKey="IDProduct")]
-		public EntitySet<DetailOrder> DetailOrders
-		{
-			get
-			{
-				return this._DetailOrders;
-			}
-			set
-			{
-				this._DetailOrders.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Review", Storage="_Reviews", ThisKey="ProductID", OtherKey="IDProduct")]
 		public EntitySet<Review> Reviews
 		{
@@ -3292,6 +3050,19 @@ namespace ConsoleApp8.DB
 			set
 			{
 				this._Reviews.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_DetailOrder", Storage="_DetailOrders", ThisKey="ProductID", OtherKey="IDProduct")]
+		public EntitySet<DetailOrder> DetailOrders
+		{
+			get
+			{
+				return this._DetailOrders;
+			}
+			set
+			{
+				this._DetailOrders.Assign(value);
 			}
 		}
 		
@@ -3441,18 +3212,6 @@ namespace ConsoleApp8.DB
 			entity.Product = null;
 		}
 		
-		private void attach_DetailOrders(DetailOrder entity)
-		{
-			this.SendPropertyChanging();
-			entity.Product = this;
-		}
-		
-		private void detach_DetailOrders(DetailOrder entity)
-		{
-			this.SendPropertyChanging();
-			entity.Product = null;
-		}
-		
 		private void attach_Reviews(Review entity)
 		{
 			this.SendPropertyChanging();
@@ -3460,6 +3219,18 @@ namespace ConsoleApp8.DB
 		}
 		
 		private void detach_Reviews(Review entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = null;
+		}
+		
+		private void attach_DetailOrders(DetailOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = this;
+		}
+		
+		private void detach_DetailOrders(DetailOrder entity)
 		{
 			this.SendPropertyChanging();
 			entity.Product = null;
@@ -4585,6 +4356,449 @@ namespace ConsoleApp8.DB
 		{
 			this.SendPropertyChanging();
 			entity.WareHouse = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DetailOrder")]
+	public partial class DetailOrder : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDOrderDetail;
+		
+		private System.Nullable<int> _IDOrder;
+		
+		private System.Nullable<int> _IDProduct;
+		
+		private System.Nullable<int> _Amount;
+		
+		private System.Nullable<decimal> _Price;
+		
+		private System.Nullable<int> _IDColor;
+		
+		private EntityRef<Order> _Order;
+		
+		private EntityRef<Product> _Product;
+		
+		private EntityRef<ColorProduct> _ColorProduct;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDOrderDetailChanging(int value);
+    partial void OnIDOrderDetailChanged();
+    partial void OnIDOrderChanging(System.Nullable<int> value);
+    partial void OnIDOrderChanged();
+    partial void OnIDProductChanging(System.Nullable<int> value);
+    partial void OnIDProductChanged();
+    partial void OnAmountChanging(System.Nullable<int> value);
+    partial void OnAmountChanged();
+    partial void OnPriceChanging(System.Nullable<decimal> value);
+    partial void OnPriceChanged();
+    partial void OnIDColorChanging(System.Nullable<int> value);
+    partial void OnIDColorChanged();
+    #endregion
+		
+		public DetailOrder()
+		{
+			this._Order = default(EntityRef<Order>);
+			this._Product = default(EntityRef<Product>);
+			this._ColorProduct = default(EntityRef<ColorProduct>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDOrderDetail", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDOrderDetail
+		{
+			get
+			{
+				return this._IDOrderDetail;
+			}
+			set
+			{
+				if ((this._IDOrderDetail != value))
+				{
+					this.OnIDOrderDetailChanging(value);
+					this.SendPropertyChanging();
+					this._IDOrderDetail = value;
+					this.SendPropertyChanged("IDOrderDetail");
+					this.OnIDOrderDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDOrder", DbType="Int")]
+		public System.Nullable<int> IDOrder
+		{
+			get
+			{
+				return this._IDOrder;
+			}
+			set
+			{
+				if ((this._IDOrder != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDOrderChanging(value);
+					this.SendPropertyChanging();
+					this._IDOrder = value;
+					this.SendPropertyChanged("IDOrder");
+					this.OnIDOrderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDProduct", DbType="Int")]
+		public System.Nullable<int> IDProduct
+		{
+			get
+			{
+				return this._IDProduct;
+			}
+			set
+			{
+				if ((this._IDProduct != value))
+				{
+					if (this._Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDProductChanging(value);
+					this.SendPropertyChanging();
+					this._IDProduct = value;
+					this.SendPropertyChanged("IDProduct");
+					this.OnIDProductChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int")]
+		public System.Nullable<int> Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDColor", DbType="Int")]
+		public System.Nullable<int> IDColor
+		{
+			get
+			{
+				return this._IDColor;
+			}
+			set
+			{
+				if ((this._IDColor != value))
+				{
+					if (this._ColorProduct.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDColorChanging(value);
+					this.SendPropertyChanging();
+					this._IDColor = value;
+					this.SendPropertyChanged("IDColor");
+					this.OnIDColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_DetailOrder", Storage="_Order", ThisKey="IDOrder", OtherKey="IDOrder", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Order Order
+		{
+			get
+			{
+				return this._Order.Entity;
+			}
+			set
+			{
+				Order previousValue = this._Order.Entity;
+				if (((previousValue != value) 
+							|| (this._Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order.Entity = null;
+						previousValue.DetailOrders.Remove(this);
+					}
+					this._Order.Entity = value;
+					if ((value != null))
+					{
+						value.DetailOrders.Add(this);
+						this._IDOrder = value.IDOrder;
+					}
+					else
+					{
+						this._IDOrder = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_DetailOrder", Storage="_Product", ThisKey="IDProduct", OtherKey="ProductID", IsForeignKey=true)]
+		public Product Product
+		{
+			get
+			{
+				return this._Product.Entity;
+			}
+			set
+			{
+				Product previousValue = this._Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Product.Entity = null;
+						previousValue.DetailOrders.Remove(this);
+					}
+					this._Product.Entity = value;
+					if ((value != null))
+					{
+						value.DetailOrders.Add(this);
+						this._IDProduct = value.ProductID;
+					}
+					else
+					{
+						this._IDProduct = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ColorProduct_DetailOrder", Storage="_ColorProduct", ThisKey="IDColor", OtherKey="IDColor", IsForeignKey=true)]
+		public ColorProduct ColorProduct
+		{
+			get
+			{
+				return this._ColorProduct.Entity;
+			}
+			set
+			{
+				ColorProduct previousValue = this._ColorProduct.Entity;
+				if (((previousValue != value) 
+							|| (this._ColorProduct.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ColorProduct.Entity = null;
+						previousValue.DetailOrders.Remove(this);
+					}
+					this._ColorProduct.Entity = value;
+					if ((value != null))
+					{
+						value.DetailOrders.Add(this);
+						this._IDColor = value.IDColor;
+					}
+					else
+					{
+						this._IDColor = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ColorProduct");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ColorProduct")]
+	public partial class ColorProduct : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDColor;
+		
+		private string _NameColor;
+		
+		private string _Description;
+		
+		private EntitySet<DetailOrder> _DetailOrders;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDColorChanging(int value);
+    partial void OnIDColorChanged();
+    partial void OnNameColorChanging(string value);
+    partial void OnNameColorChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public ColorProduct()
+		{
+			this._DetailOrders = new EntitySet<DetailOrder>(new Action<DetailOrder>(this.attach_DetailOrders), new Action<DetailOrder>(this.detach_DetailOrders));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDColor", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDColor
+		{
+			get
+			{
+				return this._IDColor;
+			}
+			set
+			{
+				if ((this._IDColor != value))
+				{
+					this.OnIDColorChanging(value);
+					this.SendPropertyChanging();
+					this._IDColor = value;
+					this.SendPropertyChanged("IDColor");
+					this.OnIDColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameColor", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string NameColor
+		{
+			get
+			{
+				return this._NameColor;
+			}
+			set
+			{
+				if ((this._NameColor != value))
+				{
+					this.OnNameColorChanging(value);
+					this.SendPropertyChanging();
+					this._NameColor = value;
+					this.SendPropertyChanged("NameColor");
+					this.OnNameColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ColorProduct_DetailOrder", Storage="_DetailOrders", ThisKey="IDColor", OtherKey="IDColor")]
+		public EntitySet<DetailOrder> DetailOrders
+		{
+			get
+			{
+				return this._DetailOrders;
+			}
+			set
+			{
+				this._DetailOrders.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_DetailOrders(DetailOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.ColorProduct = this;
+		}
+		
+		private void detach_DetailOrders(DetailOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.ColorProduct = null;
 		}
 	}
 }
