@@ -2144,3 +2144,18 @@ INSERT INTO ZipCode(Continents,Country,[Province/City],District,Wards) VALUES
 (N'Oceania', N'Wallis and Futuna', N'Leava', N'', N''),
 (N'Oceania', N'Wallis and Futuna', N'Alo', N'', N'')
 --end Hung
+--begin Hung
+GO
+ALTER TABLE dbo.Shipper
+ALTER COLUMN Address NVARCHAR(MAX)
+GO
+
+INSERT INTO dbo.Shipper( NameShipper ,PhoneNumber ,Address ,Infomation) VALUES
+(N'Saigon Ocean', N'0111111111', N'Floor 2, No. 195 Phan Van Han St., 17 Ward, Binh Thanh Dist., Ho Chi Minh City, Vietnam', N'Nhà vận chuyển'),
+(N'Royal Cargo', N'0111111111', N'18th floor, Pearl Plaza Tower, 561A Dien Bien Phu, Ward 25, Binh Thanh Dist., Ho Chi Minh City, Vietnam', N'Nhà vận chuyển'),
+(N'Head Way', N'0111111111', N' 05th Floor, Dinh Le Tower, No.01, Dinh Le Street, Ward 12, Dist 04, Ho Chi Minh City, Vietnam', N'Nhà vận chuyển'),
+(N'JAS Vietnam', N'0111111111', N'30 Phan Thuc Duyen Street, Tan Binh District, Room 409 4/F, SCSC Office BLDG, Ho Chi Minh City, Vietnam', N'Nhà vận chuyển'),
+(N'Logistics Network Vietnam', N'0111111111', N'42/48A Hoang Hoa Tham St, Ward 7, Binh Thanh District, Ho Chi Minh City, Vietnam', N'Nhà vận chuyển'),
+(N'T&M Forwarding', N'0111111111', N'Pearl Plaza Office Tower, 17/F, 561A Dien Bien Phu St., Ward 25, Binh Thanh District, Ho Chi Minh City, Vietnam', N'Nhà vận chuyển'),
+(N'Tien Phong Trade and Transporting Services Co., Ltd', N'0111111111', N'#1701 ARTEX Building – 172 Ngoc Khanh Street, Giang Vo, Ba Dinh Dist., Hanoi, Vietnam', N'Nhà vận chuyển')
+--end Hung
