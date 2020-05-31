@@ -30,7 +30,7 @@ namespace ConsoleApp8
             ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random();
             Console.OutputEncoding = Encoding.UTF8;
-            for (int ii = 0; ii < 200; ii++)
+            for (int ii = 0; ii < 100000; ii++)
             {
                 DateTime ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan;
                 string ZipCodeAddress;
