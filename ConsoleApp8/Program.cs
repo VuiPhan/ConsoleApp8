@@ -31,8 +31,14 @@ namespace ConsoleApp8
             Random random = new Random();
             Console.OutputEncoding = Encoding.UTF8;
             //
-            InserOrderAndDetailOrder();
-            ImportDetail(1, 2018);// import dữ liệu cho tháng 1 năm 2018
+            // InserOrderAndDetailOrder();
+            for(int y = 2019; y < 2021; y++)
+            {
+                for(int m = 1; m < 13; m++)
+                {
+                    ImportDetail(m, y);// import dữ liệu cho tháng m năm y
+                }
+            }
             // trong đây là chạy thử insert bảng order
             #region
             // CODE DƯỚI ĐÂY DÙNG ĐỂ TEST LẤY KẾT QUẢ HIỆN RA CONSOLE
@@ -60,7 +66,8 @@ namespace ConsoleApp8
             //        IDZipCode, ZipCodeAddress, IDShipper);
             //}
             #endregion
-            Console.WriteLine("========================");
+            Console.WriteLine("===========FINISH=============");
+            Console.ReadKey();
         }
         static void InserOrderAndDetailOrder()
         {
@@ -214,8 +221,10 @@ namespace ConsoleApp8
                             Price = OR.Key.Price,
                             Amount = OR.Sum(x => x.Amount)
                         };
+            int dem = 0;
             foreach (var i in order)
             {
+                dem += 1;
                 DetailImport di = new DetailImport();
                 di.IDProduct = i.Id;
                 di.Price = i.Price;
@@ -225,7 +234,10 @@ namespace ConsoleApp8
                 db.SubmitChanges();
                 Console.WriteLine("ID: {0}, Price: {1}, Amount: {2}", i.Id, i.Price, i.Amount);
             }
-            Console.ReadKey();
+            Console.WriteLine("===========================================================");
+            Console.WriteLine("Đã Insert vào bảng ImportBill: ID = {0}",IDImport);
+            Console.WriteLine("Đã Insert {0} dòng vào bảng DetailImport",dem);
+            Console.WriteLine("===========================================================");
         }
         public static int GetRandomNumber(int min, int max)
         {
