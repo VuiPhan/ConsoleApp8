@@ -31,9 +31,43 @@ namespace ConsoleApp8
             Random random = new Random();
             Console.OutputEncoding = Encoding.UTF8;
             //
+            InserOrderAndDetailOrder();
             ImportDetail(1, 2018);// import dữ liệu cho tháng 1 năm 2018
+            // trong đây là chạy thử insert bảng order
+            #region
+            // CODE DƯỚI ĐÂY DÙNG ĐỂ TEST LẤY KẾT QUẢ HIỆN RA CONSOLE
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine("========== {0} TIME(S) =============", i + 1);
+            //    // 4 cột thời gian
+            //    DateTime[] date = RandomDay();
+            //    ngayDat = date[0]; ngayXacNhan = date[1]; ngayGiaoDVVC = date[2]; ngayNhan = date[3];
+            //    // Thông tin khách hàng
+            //    string[] Member = RandomMember();
+            //    IDMember = Member[0]; Phone = Member[1]; Email = Member[2]; FullName = Member[3];
+            //    //
+            //    string[] ZipCode = RandomZipCode();
+            //    IDZipCode = int.Parse(ZipCode[0]);
+            //    ZipCodeAddress = ZipCode[1];
+            //    //
+            //    IDShipper = RandomShipper();
 
-            // trong đây là code insert bảng order
+            //    Console.WriteLine("ngayDat: {0} , ngayXacNhan: {1} , ngayGiaoDVVC: {2} , ngayNhan: {3}",
+            //        ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan);
+            //    Console.WriteLine("IDMember: {0} , Phone: {1}, Email: {2}, FullName: {3}",
+            //        IDMember, Phone, Email, FullName);
+            //    Console.WriteLine("IDZipCode: {0}, ZipCodeAddress: {1}, IDShipper: {2}",
+            //        IDZipCode, ZipCodeAddress, IDShipper);
+            //}
+            #endregion
+            Console.WriteLine("========================");
+        }
+        static void InserOrderAndDetailOrder()
+        {
+            ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
+            Random random = new Random();
+            Console.OutputEncoding = Encoding.UTF8;
+            //trong đây là code insert bảng order
             #region
             for (int ii = 0; ii < 100000; ii++)
             {
@@ -141,46 +175,7 @@ namespace ConsoleApp8
                 }
             }
             #endregion
-
-            // trong đây là chạy thử insert bảng order
-            #region
-            // CODE DƯỚI ĐÂY DÙNG ĐỂ TEST LẤY KẾT QUẢ HIỆN RA CONSOLE
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    Console.WriteLine("========== {0} TIME(S) =============", i + 1);
-            //    // 4 cột thời gian
-            //    DateTime[] date = RandomDay();
-            //    ngayDat = date[0]; ngayXacNhan = date[1]; ngayGiaoDVVC = date[2]; ngayNhan = date[3];
-            //    // Thông tin khách hàng
-            //    string[] Member = RandomMember();
-            //    IDMember = Member[0]; Phone = Member[1]; Email = Member[2]; FullName = Member[3];
-            //    //
-            //    string[] ZipCode = RandomZipCode();
-            //    IDZipCode = int.Parse(ZipCode[0]);
-            //    ZipCodeAddress = ZipCode[1];
-            //    //
-            //    IDShipper = RandomShipper();
-
-            //    Console.WriteLine("ngayDat: {0} , ngayXacNhan: {1} , ngayGiaoDVVC: {2} , ngayNhan: {3}",
-            //        ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan);
-            //    Console.WriteLine("IDMember: {0} , Phone: {1}, Email: {2}, FullName: {3}",
-            //        IDMember, Phone, Email, FullName);
-            //    Console.WriteLine("IDZipCode: {0}, ZipCodeAddress: {1}, IDShipper: {2}",
-            //        IDZipCode, ZipCodeAddress, IDShipper);
-            //}
-            #endregion
-            Console.WriteLine("========================");
         }
-        ////private static readonly Random getrandom = new Random(DateTime.Now.Millisecond);
-
-        //public static int GetRandomNumber(int min, int max)
-        //{
-        //    Random getrandom = new Random(DateTime.Now.Millisecond);
-        //    lock (getrandom) // synchronize
-        //    {
-        //        return getrandom.Next(min, max);
-        //    }
-        //}
         static void ImportDetail(int m, int y)
         {
             ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
