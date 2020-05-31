@@ -31,10 +31,10 @@ namespace ConsoleApp8
             Random random = new Random();
             Console.OutputEncoding = Encoding.UTF8;
             //
-            // InserOrderAndDetailOrder();
-            for(int y = 2019; y < 2021; y++)
+            InserOrderAndDetailOrder();
+            for (int y = 2018; y < 2021; y++)
             {
-                for(int m = 1; m < 13; m++)
+                for (int m = 1; m < 13; m++)
                 {
                     ImportDetail(m, y);// import dữ liệu cho tháng m năm y
                 }
@@ -76,7 +76,7 @@ namespace ConsoleApp8
             Console.OutputEncoding = Encoding.UTF8;
             //trong đây là code insert bảng order
             #region
-            for (int ii = 0; ii < 100000; ii++)
+            for (int ii = 0; ii < 200; ii++)
             {
                 DateTime ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan;
                 string ZipCodeAddress;
@@ -228,7 +228,7 @@ namespace ConsoleApp8
                 DetailImport di = new DetailImport();
                 di.IDProduct = i.Id;
                 di.Price = i.Price;
-                di.Amount = i.Amount;
+                di.Amount = i.Amount + GetRandomNumber(1,30);
                 di.IDImport = IDImport;
                 db.DetailImports.InsertOnSubmit(di);
                 db.SubmitChanges();
