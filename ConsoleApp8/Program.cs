@@ -30,6 +30,11 @@ namespace ConsoleApp8
             ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random();
             Console.OutputEncoding = Encoding.UTF8;
+            //
+            ImportDetail(1, 2018);// import dữ liệu cho tháng 1 năm 2018
+
+            // trong đây là code insert bảng order
+            #region
             for (int ii = 0; ii < 100000; ii++)
             {
                 DateTime ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan;
@@ -135,7 +140,10 @@ namespace ConsoleApp8
                     Console.WriteLine("Đã nhập thành công đơn hàng thứ {0}", ii);
                 }
             }
+            #endregion
 
+            // trong đây là chạy thử insert bảng order
+            #region
             // CODE DƯỚI ĐÂY DÙNG ĐỂ TEST LẤY KẾT QUẢ HIỆN RA CONSOLE
             //for (int i = 0; i < 10; i++)
             //{
@@ -160,6 +168,7 @@ namespace ConsoleApp8
             //    Console.WriteLine("IDZipCode: {0}, ZipCodeAddress: {1}, IDShipper: {2}",
             //        IDZipCode, ZipCodeAddress, IDShipper);
             //}
+            #endregion
             Console.WriteLine("========================");
         }
         ////private static readonly Random getrandom = new Random(DateTime.Now.Millisecond);
@@ -172,6 +181,57 @@ namespace ConsoleApp8
         //        return getrandom.Next(min, max);
         //    }
         //}
+        static void ImportDetail(int m, int y)
+        {
+            ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
+            int month = m, year = y; // biến month và year dùng để lưu thời gian Import dữ liệu ( DateImport trong bảng ImportBill )
+            // m, y lưu thời gian lấy tháng, năm lấy dữ liệu ra để import vào
+            if (m == 1)
+            {
+                month = 12;
+                year -= 1;
+            }
+            int day = DateTime.DaysInMonth(year, month);
+            ImportBill ib = new ImportBill();
+            ib.IDSupplier = 1;
+            ib.TotalAmount = 0;
+            ib.TotalMoney = 0;
+            ib.DateImport = new DateTime(year, month, day);// ngày import
+
+            db.ImportBills.InsertOnSubmit(ib);
+            db.SubmitChanges();
+            ImportBill last = db.ImportBills.Skip(db.ImportBills.Count() - 1).FirstOrDefault();
+            int IDImport = last.IDImport;
+            var order = from or in db.Orders
+                        join od in db.DetailOrders
+                        on or.IDOrder equals od.IDOrder
+                        where or.DeliveredDate.Value.Month == m && or.DeliveredDate.Value.Year == y
+                        group od by new
+                        {
+                            od.IDProduct,
+                            od.Price,
+                            or.DeliveredDate.Value.Month,
+                            or.DeliveredDate.Value.Year
+                        } into OR
+                        select new
+                        {
+                            Id = OR.Key.IDProduct,
+                            Price = OR.Key.Price,
+                            Amount = OR.Sum(x => x.Amount)
+                        };
+            foreach (var i in order)
+            {
+                DetailImport di = new DetailImport();
+                di.IDProduct = i.Id;
+                di.Price = i.Price;
+                di.Amount = i.Amount;
+                di.IDImport = IDImport;
+                db.DetailImports.InsertOnSubmit(di);
+                db.SubmitChanges();
+                Console.WriteLine("ID: {0}, Price: {1}, Amount: {2}", i.Id, i.Price, i.Amount);
+            }
+            Console.ReadKey();
+        }
         public static int GetRandomNumber(int min, int max)
         {
             var seed = Convert.ToInt32(Regex.Match(Guid.NewGuid().ToString(), @"\d+").Value);
