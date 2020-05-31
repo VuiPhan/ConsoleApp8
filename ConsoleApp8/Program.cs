@@ -31,7 +31,7 @@ namespace ConsoleApp8
             Random random = new Random();
             Console.OutputEncoding = Encoding.UTF8;
             //
-            OrderImport(1, 2018);// import dữ liệu cho tháng 1 năm 2018
+            ImportDetail(1, 2018);// import dữ liệu cho tháng 1 năm 2018
 
             // trong đây là code insert bảng order
             #region
@@ -181,7 +181,7 @@ namespace ConsoleApp8
         //        return getrandom.Next(min, max);
         //    }
         //}
-        static void OrderImport(int m, int y)
+        static void ImportDetail(int m, int y)
         {
             ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
             int month = m, year = y; // biến month và year dùng để lưu thời gian Import dữ liệu ( DateImport trong bảng ImportBill )
