@@ -2205,3 +2205,16 @@ VALUES  (
           N''  -- Description - nvarchar(max)
           )
 --end Vui
+
+--begin VUi
+GO
+
+CREATE TABLE Store(
+	IDStore INT IDENTITY(1,1) PRIMARY KEY,
+	NameStore NVARCHAR(100),
+	IDZipCodeStore INT,
+	FOREIGN KEY(IDZipCodeStore) REFERENCES dbo.ZipCode(IDZipCode),
+	AddressStore NVARCHAR(300) 
+)
+Go 
+--end vui

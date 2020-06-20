@@ -30,7 +30,8 @@ namespace ConsoleApp8
             ShopBanDoTheThaoNorthwindDataContext db = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random();
             Console.OutputEncoding = Encoding.UTF8;
-            //
+            
+           
             InserOrderAndDetailOrder();
             for (int y = 2018; y < 2021; y++)
             {
@@ -39,6 +40,7 @@ namespace ConsoleApp8
                     ImportDetail(m, y);// import dữ liệu cho tháng m năm y
                 }
             }
+            //RandromStore();
             // trong đây là chạy thử insert bảng order
             #region
             // CODE DƯỚI ĐÂY DÙNG ĐỂ TEST LẤY KẾT QUẢ HIỆN RA CONSOLE
@@ -76,7 +78,7 @@ namespace ConsoleApp8
             Console.OutputEncoding = Encoding.UTF8;
             //trong đây là code insert bảng order
             #region
-            for (int ii = 0; ii < 200; ii++)
+            for (int ii = 0; ii < 10000; ii++)
             {
                 DateTime ngayDat, ngayXacNhan, ngayGiaoDVVC, ngayNhan;
                 string ZipCodeAddress;
@@ -110,8 +112,19 @@ namespace ConsoleApp8
                 order.TotalAmount = 0;
 
                 order.Status = 4;
-                order.ShopOrOnline = true;
                 order.Notes = "Giao nhanh nha anh !";
+                // Theo qui định của biến ShopOrOnline thì true sẽ là Offline -> mua tại cửa hàng
+                // ShopOrOnline == False sẽ mua online
+                order.ShopOrOnline = false;
+                order.IDStore = 101;
+                bool[] valuesIsOnline = { true,true,true,true, false, false, false, false,false,false};
+                bool IsOnlineProbability = valuesIsOnline[random.Next(0, valuesIsOnline.Length)];
+                
+                if (IsOnlineProbability) {
+                    int num = random.Next(1, db.Stores.Count());
+                    order.IDStore = db.Stores.Skip(num).FirstOrDefault().IDStore;
+                    order.ShopOrOnline = true;
+                }
                 db.Orders.InsertOnSubmit(order);
                 db.SubmitChanges();
                 //Lấy mã id cuối cùng
@@ -153,7 +166,7 @@ namespace ConsoleApp8
                     db.SubmitChanges();
 
                     // Import review về sản phẩm
-                    int star = random.Next(1, 5);
+                    int star = random.Next(3, 5);
                     Review review = new Review();
                     review.Message = "Sản phẩm tuyệt vời";
                     review.Star = star;
@@ -228,7 +241,7 @@ namespace ConsoleApp8
                 DetailImport di = new DetailImport();
                 di.IDProduct = i.Id;
                 di.Price = i.Price;
-                di.Amount = i.Amount + GetRandomNumber(1,30);
+                di.Amount = i.Amount + GetRandomNumber(1,6);
                 di.IDImport = IDImport;
                 db.DetailImports.InsertOnSubmit(di);
                 db.SubmitChanges();
@@ -378,7 +391,7 @@ namespace ConsoleApp8
             ShopBanDoTheThaoNorthwindDataContext da = new ShopBanDoTheThaoNorthwindDataContext();
             Random random = new Random(DateTime.Now.Millisecond);
             int k;
-            k = random.Next(1, 758);
+            k = random.Next(1, da.ZipCodes.Count());
             var ZipCode = from s in da.ZipCodes
                           where s.IDZipCode == k
                           select new { IDZipCode = s.IDZipCode,
@@ -405,6 +418,28 @@ namespace ConsoleApp8
         //    ImportBill importBill = new ImportBill();
         //    importBill.
         //}
-        
+        static void RandromStore()
+        {
+            ShopBanDoTheThaoNorthwindDataContext da = new ShopBanDoTheThaoNorthwindDataContext();
+            for (int i = 0; i < 100; i++)
+            {
+                Random random = new Random(DateTime.Now.Millisecond);
+                int k = random.Next(1, 758);
+                var StoreAddress = (from s in da.ZipCodes
+                                    where s.IDZipCode == k
+                                    select new
+                                    {
+                                        IDZipCode = s.IDZipCode,
+                                        Address = s.Wards + ", " + s.District + ", " + s.Province_City
+                                    }).SingleOrDefault();
+                Store store = new Store();
+                store.IDZipCodeStore = StoreAddress.IDZipCode;
+                store.AddressStore = StoreAddress.Address;
+                store.NameStore = "MWC";
+                da.Stores.InsertOnSubmit(store);
+                da.SubmitChanges();
+            }
+        }
     }
 }
+    
